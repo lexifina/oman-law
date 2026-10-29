@@ -1,0 +1,20 @@
+The legal texts are royal decrees and laws of the Sultanate of Oman, as published in the Official Gazette
+(الجريدة الرسمية). They were read from:
+
+  Qanoon.om (https://qanoon.om), which transcribes the Official Gazette, retrieved 29 October 2026. Qanoon.om states:
+  "نصوص القانون تعد ملكا عاما في سلطنة عمان بموجب أحكام قانون حق المؤلف والحقوق المجاورة العماني ويجوز لمستخدمي موقع
+  Qanoon.om استعمالها ونسخها ونشرها وترجمتها مجانا ودون قيود" (the texts of law are public property in Oman under the
+  Omani Copyright and Related Rights Law and may be used, copied, published and translated freely and without
+  restriction). It also states that it is not an official source.
+
+and checked against the Ministry of Justice and Legal Affairs (وزارة العدل والشؤون القانونية, https://mjla.gov.om),
+whose content is licensed under the Government Open Licence - Sultanate of Oman (الرخصة الحكومية المفتوحة - سلطنة عمان).
+
+Changes made by Lexifina: each text was converted to one Markdown file per article, one paragraph per line; spacing,
+quotes, dashes and digit forms were normalised; the site's footnotes were removed from the text and used only to credit
+the amending decree; and the versions were arranged as git commits credited to the decrees that made each change. The
+wording of the law was not changed. Neither Qanoon.om nor the Ministry endorses this repository.
+
+Lexifina's own contributions (the arrangement of the history, the commit messages, the tables and the tools) are
+dedicated to the public domain under CC0 1.0 Universal:
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
