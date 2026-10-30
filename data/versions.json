@@ -1,0 +1,89 @@
+{
+ "country": "OM",
+ "acts": [
+  {
+   "slug": "nizam-asasi",
+   "short": "النظام الأساسي",
+   "title": "النظام الأساسي للدولة",
+   "url": "https://qanoon.om/p/2021/l2021006/",
+   "versions": [
+    {
+     "from": "1996-11-06",
+     "units": 84,
+     "source_url": "https://qanoon.om/p/1996/rd1996101/",
+     "sha256": "9206eeda1e2eda97680672e4a7da3944e34318a76e832bbf41cce9447a5865d9"
+    },
+    {
+     "from": "2011-10-27",
+     "units": 129,
+     "source_url": "https://qanoon.om/p/2011/rd2011099/",
+     "sha256": "654631b232ea7e3c21d73a2361642c409e29fa762cf6b7329dd9a33c2b5f1886"
+    },
+    {
+     "from": "2021-01-11",
+     "units": 102,
+     "source_url": "https://qanoon.om/p/2021/rd2021006/",
+     "sha256": "738d4c434ec914d52460a85d4cd86012158425b5d388f495d51ad005476ec871"
+    },
+    {
+     "from": "2026-09-13",
+     "units": 102,
+     "source_url": "https://qanoon.om/p/2021/l2021006/",
+     "sha256": "76458cfb7cb6540944b2a0af4830629ee1a246f3138d47638c420f797f6ba0c3"
+    }
+   ]
+  },
+  {
+   "slug": "qanun-al-jaza",
+   "short": "قانون الجزاء",
+   "title": "قانون الجزاء",
+   "url": "https://qanoon.om/p/2018/l2018007/",
+   "versions": [
+    {
+     "from": "2018-01-15",
+     "units": 393,
+     "source_url": "https://qanoon.om/p/2018/rd2018007/",
+     "sha256": "36a3b4d21c2a85aa2513ffa9d570a07e8224d2e3e7ee33842f3a6d5c90a7a3ba"
+    },
+    {
+     "from": "2022-10-24",
+     "units": 396,
+     "source_url": "https://qanoon.om/p/2022/rd2022068/",
+     "sha256": "bda6f7ec79dcde861fd49eb2d704a8a92cfee85347139510b35eb5cfc7e811bf"
+    },
+    {
+     "from": "2025-01-14",
+     "units": 396,
+     "source_url": "https://qanoon.om/p/2025/rd2025011/",
+     "sha256": "41cd80c9bf16020ef060907b67c5697edd79d5eb3c98c30981f4cff3fdca804e"
+    },
+    {
+     "from": "2026-06-29",
+     "units": 401,
+     "source_url": "https://qanoon.om/p/2026/rd2026066/",
+     "sha256": "eabff53f73c6addb3edcfcb9edf17fa3b07763cfc4801bce261ddeee4a4efc5f"
+    }
+   ]
+  },
+  {
+   "slug": "himayat-al-bayanat",
+   "short": "قانون حماية البيانات الشخصية",
+   "title": "قانون حماية البيانات الشخصية",
+   "url": "https://qanoon.om/p/2022/l2022006/",
+   "versions": [
+    {
+     "from": "2023-02-13",
+     "units": 37,
+     "source_url": "https://qanoon.om/p/2022/rd2022006/",
+     "sha256": "536ca3a4c7f088564f86cf56926b14d9c79739daedf05f390369db8fe47fb166"
+    },
+    {
+     "from": "2026-09-07",
+     "units": 39,
+     "source_url": "https://qanoon.om/p/2026/rd2026068/",
+     "sha256": "83974db8feee5aef08fb1d5320e34bce427fcc9a62add70a7ec6ff0eed13191b"
+    }
+   ]
+  }
+ ]
+}
