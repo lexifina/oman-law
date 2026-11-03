@@ -12,6 +12,8 @@ It follows the shared design of [lexifina/global-law](https://github.com/lexifin
 | `qanun-al-jaza/` | قانون الجزاء (Penal Code, RD 7/2018) | 4 | As issued (in force 15 January 2018); amended by RD 68/2022 (24 October 2022), RD 11/2025 (14 January 2025) and RD 66/2026 (29 June 2026) |
 | `himayat-al-bayanat/` | قانون حماية البيانات الشخصية (Personal Data Protection Law, RD 6/2022) | 2 | As issued (in force 13 February 2023, one year after publication); amended by RD 68/2026 (7 September 2026) |
 
+**Other laws (from November 2026).** Every other consolidated law Qanoon.om publishes is here as its current text, 93 acts in folders named after the royal decree that issued it (`rd-<year>-<number>/`, for example `rd-1977-26/` for the Commercial Agencies Law). Each is one version, the oldest version available, credited to the publisher and naming the decree, and dated by that decree's in-force day. Its dated history (the text as issued and each amending decree) is not yet recorded; it will be added on top, never by rewriting. Articles shown only as repealed are left out. Each act's articles were compared letter for letter with the Ministry's PDF where the Ministry's laws list has one; the result per act is in `REPRODUCE.md`.
+
 Each folder holds the promulgating decree's preamble (`preamble.md`) and articles (`isdar-NN.md`) and the law's articles (`art-NNN.md`, `art-NNN-bis.md`, `art-NNN-bis-NN.md` for مكررا and مكررا (N)). The per-act `README.md` lists every article, how often it changed and when.
 
 ## A lawyer's questions as git commands
@@ -60,7 +62,7 @@ The author of a commit is the royal decree that made the change, with an e-mail 
 - **Headings.** Book, part, chapter and section headings are not files. Two heading changes are therefore not commits: RD 68/2022 renamed chapter 2 of part 3 of book 2 of the Penal Code ("القرصنة والاعتداء على وسائل النقل والمرافق العامة والمخالفات البلدية"), and RD 66/2026 added the heading of Part V bis.
 - **The decrees' signature blocks** (date of issue, signature, Gazette issue) are not in the text; they are in the commit trailers.
 - **Earlier law.** The Penal Code of 2018 replaced the Omani Penal Law of 1974 (RD 7/74), which is not included.
-- **Other laws.** Only these three acts are here so far.
+- **Other laws.** Only Qanoon.om's consolidated laws are here; ministerial decisions, regulations issued outside a consolidated page and treaties are not. The 93 acts other than the three above have no dated history yet, so their one version reads as in force from the issuing decree's start although its text is today's.
 - **Applicability.** Transitional rules on which cases a change applies to are in the text, not in the dates; no applicability data is recorded.
 
 ## How it is built
