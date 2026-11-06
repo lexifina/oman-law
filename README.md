@@ -1,5 +1,7 @@
 # Oman: law history in git
 
+Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Oman's national law, which global-law reads at `oman/national/acts/`.
+
 The law of the Sultanate of Oman as a git history: one file per article, one commit per royal decree on the day it took effect, and the decree that made each change as the commit's author. `git blame` names the decree behind every paragraph; `git log` lists every change to an article; reading the history on a date gives the text in force that day. The texts are in Arabic, the language of the Official Gazette.
 
 It follows the shared design of [lexifina/global-law](https://github.com/lexifina/global-law), which places it at `om/`.
