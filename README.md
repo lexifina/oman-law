@@ -86,6 +86,10 @@ python3 tools/law.py show 2026-01-01 oman/national/acts/nizam-asasi/art-086.md
 
 هذا النص ترجمة للنسخة الإنجليزية ([README.en.md](README.en.md))؛ وعند الاختلاف تسود النسخة الإنجليزية.
 
+## الرسوم البيانية
+
+- [visualisations/](visualisations/): رسوم بيانية مستخرجة من هذا المستودع. لم تُرسم بعد.
+
 ## المزيد
 
 من مستودع [lexifina/global-law](https://github.com/lexifina/global-law) (صفحات باللغة الإنجليزية):
