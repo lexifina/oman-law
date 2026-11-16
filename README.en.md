@@ -61,6 +61,7 @@ The three acts' changes are credited to the decree that made them (`rd-2022-68@q
 - The Ministry of Justice and Legal Affairs' PDFs have a scrambled text layer, so the letters of each article are matched with them instead (alef forms and digits left out). Every article of the three acts matched on 29 October 2026; of the 93 others, 13 match in every article, 46 in part (3,239 of the 59 acts' 3,590 articles match) and 34 have no Ministry PDF. The result per act is in [`REPRODUCE.md`](REPRODUCE.md).
 - `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before and compares it with the corpus; `tools/build.py` gives the same commit hashes from the same corpus. `REPRODUCE.md` records that neither was run for the latest build.
 - History grows append-only: `tools/append.py` puts new acts and versions on top and stops rather than rewrite a published commit.
+- [vulnerabilities/](vulnerabilities/README.en.md): possible drafting mistakes in Omani law, found by global-law's detectors and checked by hand.
 
 ## What it does not show
 
