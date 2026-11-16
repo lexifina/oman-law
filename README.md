@@ -1,35 +1,41 @@
-# Oman: law history in git
+# عُمان: تاريخ القانون في git
 
+**العربية** · [English](README.en.md)
 
-The law of the Sultanate of Oman as a git history: one file per article, one commit per version on the day it took effect, and the royal decree that made each change as the commit's author. `git blame` names the decree behind every paragraph; `git log` lists every change to an article; picking a date gives the text in force that day.
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="data/ar/effort-dark.svg">
+<img alt="القانون العُماني في هذا المستودع: ما يحتويه، والتعديلات حسب سنة نفاذها، والاكتمال مقارنةً بالمصادر الرسمية، وصحة المحتوى" src="data/ar/effort-light.svg" width="880">
+</picture>
 
-Part of [lexifina/global-law](https://github.com/lexifina/global-law), one git history for every country's law: this is Oman's national law, which global-law reads at `oman/national/acts/`.
+قانون سلطنة عُمان في صورة سجل git: ملف لكل مادة، ولكل نسخة commit واحد في يوم العمل بها، والمرسوم السلطاني الذي أجرى كل تعديل هو مؤلف الـ commit. يبيّن `git blame` المرسوم الذي يقف وراء كل فقرة؛ ويسرد `git log` كل تعديل طرأ على مادة؛ واختيار تاريخ ما يعطي النص النافذ في ذلك اليوم.
 
-**What is in it now:** 96 acts with 103 versions: the Basic Statute of the State (4 versions, 1996 to 2026), the Penal Code (4) and the Personal Data Protection Law (2), each with its dated history; and 93 other laws and royal decrees, each as its current text in one version. [`REPRODUCE.md`](REPRODUCE.md) lists every act; [`data/laws.csv`](data/laws.csv) every decree in the record.
+جزء من [lexifina/global-law](https://github.com/lexifina/global-law)، وهو سجل git واحد لقانون كل بلد: هذا هو القانون الوطني العُماني، الذي يقرؤه global-law في `oman/national/acts/`.
 
-The three acts with a history are in `nizam-asasi/`, `qanun-al-jaza/` and `himayat-al-bayanat/`; the others are in `rd/<year>/<number>/`, after the royal decree that issued them (`rd/1977/26/` is the Commercial Agencies Law, RD 26/77). Each folder holds the law's articles (`art-NNN.md`, `art-NNN-bis.md` for مكررا) and, where the source gives them, the issuing decree's preamble (`preamble.md`) and articles (`isdar-NN.md`); `data/paths.json` maps each act id to its folder.
+**المحتوى الحالي:** 96 تشريعًا في 103 نسخ: النظام الأساسي للدولة (4 نسخ، من 1996 إلى 2026)، وقانون الجزاء (4) وقانون حماية البيانات الشخصية (2)، كل منها بتاريخ تعديلاته مؤرَّخًا؛ و93 قانونًا ومرسومًا سلطانيًا آخر، كل منها بنصه الحالي في نسخة واحدة. يسرد [`REPRODUCE.md`](REPRODUCE.md) كل تشريع؛ ويسرد [`data/laws.csv`](data/laws.csv) كل مرسوم في السجل.
 
-The text is in Arabic, as Qanoon.om transcribes it from the Official Gazette. An English translation is not part of this record.
+التشريعات الثلاثة ذات التاريخ موجودة في `nizam-asasi/` و`qanun-al-jaza/` و`himayat-al-bayanat/`؛ أما البقية ففي `rd/<year>/<number>/`، بحسب المرسوم السلطاني الذي أصدرها (`rd/1977/26/` هو قانون الوكالات التجارية، المرسوم السلطاني 26/77). يضم كل مجلد مواد القانون (`art-NNN.md`، و`art-NNN-bis.md` للمواد المكررة "مكررا") وكذلك، حيث يوردها المصدر، ديباجة مرسوم الإصدار (`preamble.md`) ومواده (`isdar-NN.md`)؛ ويربط `data/paths.json` معرّف كل تشريع بمجلده.
 
-## Questions as git commands
+النص باللغة العربية، كما ينقله موقع Qanoon.om عن الجريدة الرسمية. والترجمة الإنجليزية ليست جزءًا من هذا السجل.
 
-| Question | Command |
+## الأسئلة في صورة أوامر git
+
+| السؤال | الأمر |
 | --- | --- |
-| Every change to Article 86 of the Basic Statute | `git log -p --word-diff -- nizam-asasi/art-086.md` |
-| Which decree wrote each line of Article 86? | `git blame nizam-asasi/art-086.md` |
-| Every version of the Basic Statute, with the day each took effect | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- nizam-asasi ":^nizam-asasi/README.md"` |
-| Article 86 as in force on 1 June 2026 | `python tools/on.py 2026-06-01 nizam-asasi art-086` |
+| كل تعديل طرأ على المادة 86 من النظام الأساسي | `git log -p --word-diff -- nizam-asasi/art-086.md` |
+| أي مرسوم كتب كل سطر من المادة 86؟ | `git blame nizam-asasi/art-086.md` |
+| كل نسخ النظام الأساسي، مع يوم العمل بكل منها | `git log --format="%h %(trailers:key=In-force,valueonly,separator=) %an" -- nizam-asasi ":^nizam-asasi/README.md"` |
+| المادة 86 كما كانت نافذة في 1 يونيو 2026 | `python tools/on.py 2026-06-01 nizam-asasi art-086` |
 
-**Outside git**, we also host this record publicly, for free:
+**خارج git**، نستضيف هذا السجل أيضًا للعموم، مجانًا:
 
-- **[Ask Claude about Omani law](https://global-law.lexifina.com/v1/try_claude?country=oman)**: opens Claude with a first question ready.
-- **[Ask ChatGPT](https://global-law.lexifina.com/v1/try_chatgpt?country=oman)**: the same question in ChatGPT.
-- **[Search Omani law on our site](https://lexifina.com/law?country=oman&q=%D8%AD%D8%B1%D9%8A%D8%A9+%D8%A7%D9%84%D8%B1%D8%A3%D9%8A)**: a search for "حرية الرأي" (freedom of opinion), with each provision's text and its versions, no account needed.
-- **[Developer REST API](https://global-law.lexifina.com/v1/search_law?query=%D8%AD%D8%B1%D9%8A%D8%A9+%D8%A7%D9%84%D8%B1%D8%A3%D9%8A&jurisdiction=oman)**: the same search as JSON, with no key. See the [documentation here](https://lexifina.com/api/global-law).
+- **[اسأل Claude عن القانون العُماني](https://global-law.lexifina.com/v1/try_claude?country=oman)**: يفتح Claude ومعه سؤال أول جاهز.
+- **[اسأل ChatGPT](https://global-law.lexifina.com/v1/try_chatgpt?country=oman)**: السؤال نفسه في ChatGPT.
+- **[ابحث في القانون العُماني على موقعنا](https://lexifina.com/law?country=oman&q=%D8%AD%D8%B1%D9%8A%D8%A9+%D8%A7%D9%84%D8%B1%D8%A3%D9%8A)**: بحث عن "حرية الرأي"، مع نص كل حكم ونسخه، دون الحاجة إلى حساب.
+- **[واجهة REST API للمطوّرين](https://global-law.lexifina.com/v1/search_law?query=%D8%AD%D8%B1%D9%8A%D8%A9+%D8%A7%D9%84%D8%B1%D8%A3%D9%8A&jurisdiction=oman)**: البحث نفسه بصيغة JSON، دون مفتاح. انظر [التوثيق هنا](https://lexifina.com/api/global-law).
 
-Both assistants read the record through the free Global law connector (MCP, `https://global-law.lexifina.com/mcp`); the first time, the chat gives you the link that adds it. Ask in Arabic or in English.
+يقرأ المساعدان كلاهما السجل عبر موصِّل Global law المجاني (MCP، `https://global-law.lexifina.com/mcp`)؛ وفي المرة الأولى تعطيك المحادثة الرابط الذي يضيفه. اسأل بالعربية أو بالإنجليزية.
 
-**Host it yourself easily.** All it takes is git and Python, and the tools run on your machine:
+**استضفه بنفسك بسهولة.** كل ما يلزم هو git وPython، والأدوات تعمل على جهازك:
 
 ```sh
 git clone --depth 1 https://github.com/lexifina/global-law && cd global-law
@@ -37,57 +43,55 @@ python3 tools/countries.py add oman/national/acts
 python3 tools/law.py show 2026-01-01 oman/national/acts/nizam-asasi/art-086.md
 ```
 
-Opened in Claude Code, Cursor, VS Code or Codex, the clone also starts a local MCP server with the same tools ([MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md)).
+عند فتح النسخة المستنسخة في Claude Code أو Cursor أو VS Code أو Codex، تشغّل أيضًا خادم MCP محليًا بالأدوات نفسها ([MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md)).
 
-## Dates
+## التواريخ
 
-Each commit is dated at noon, Asia/Muscat, on the day the version took effect, and carries it in its `In-force:` trailer; the three acts' commits also carry the decree's issue and Gazette days (`Enacted:`, `Published:`).
+يحمل كل commit تاريخ الظهيرة، بتوقيت Asia/Muscat، من اليوم الذي بدأ فيه العمل بالنسخة، ويحمل هذا اليوم في تذييله (trailer) `In-force:`؛ وتحمل commits التشريعات الثلاثة أيضًا يومَي إصدار المرسوم ونشره في الجريدة الرسمية (`Enacted:`، `Published:`).
 
-- For the three acts with a history, the day each decree fixes in its last article: from its issue (RD 101/96, RD 6/2021, RD 79/2026), from the day after its publication (RD 99/2011, RD 7/2018, RD 68/2022, RD 11/2025, RD 66/2026, RD 68/2026), or one year after it (RD 6/2022). Without such a day, laws take effect on publication (Basic Statute of 2021, art. 91).
-- The statutes of 1996 and 2021 are one act in `nizam-asasi/`: RD 6/2021 repealed the first, so on 11 January 2021 every article is rewritten and the 1996 articles the new statute lacks are removed.
-- The other 93 acts are dated by the in-force day of the decree that issued them, although their text is today's. Fourteen of those decrees defer their start by months or years (the Labour Law of 2003 by a month) and are still dated on the day of publication.
+- في التشريعات الثلاثة ذات التاريخ، اليوم الذي يحدده كل مرسوم في مادته الأخيرة: من تاريخ صدوره (المراسيم السلطانية 101/96 و6/2021 و79/2026)، أو من اليوم التالي لتاريخ نشره (المراسيم السلطانية 99/2011 و7/2018 و68/2022 و11/2025 و66/2026 و68/2026)، أو بعد سنة من تاريخ نشره (المرسوم السلطاني 6/2022). وعند عدم تحديد مثل هذا اليوم، يُعمل بالقوانين من تاريخ نشرها (النظام الأساسي لسنة 2021، المادة 91).
+- النظامان الأساسيان لسنتي 1996 و2021 تشريع واحد في `nizam-asasi/`: فقد ألغى المرسوم السلطاني 6/2021 الأول، لذا تُعاد كتابة كل مادة في 11 يناير 2021 وتُحذف مواد 1996 التي لا يتضمنها النظام الجديد.
+- تُؤرَّخ التشريعات الـ 93 الأخرى بيوم العمل بالمرسوم الذي أصدرها، رغم أن نصها هو النص الحالي. ويؤجّل أربعة عشر من هذه المراسيم بدء العمل بها أشهرًا أو سنوات (قانون العمل لسنة 2003 بشهر واحد) ومع ذلك تُؤرَّخ بيوم النشر.
 
-The three acts' changes are credited to the decree that made them (`rd-2022-68@qanoon.invalid`), as Qanoon.om's footnotes name it or, for RD 99/2011, which no page footnotes, from the decree's own text. The 93 one-version acts are credited to the publisher, Qanoon.om, as the "oldest version available", with the issuing decree named in the commit message. The committer is Lexifina.
+تُنسب تعديلات التشريعات الثلاثة إلى المرسوم الذي أجراها (`rd-2022-68@qanoon.invalid`)، كما تسمّيه حواشي موقع Qanoon.om، أو، في حالة المرسوم السلطاني 99/2011 الذي لا تذكره أي حاشية في الصفحات، استنادًا إلى نص المرسوم نفسه. وتُنسب التشريعات الـ 93 ذات النسخة الواحدة إلى الجهة الناشرة، Qanoon.om، بوصفها "أقدم نسخة متاحة"، مع ذكر مرسوم الإصدار في رسالة الـ commit. والمُودِع (committer) هو Lexifina.
 
-## How it is checked
+## كيف يُتحقَّق منه
 
-- The three acts are rebuilt from each decree as issued; their last version must equal Qanoon.om's consolidated page, and every line an amendment adds must appear in that decree.
-- The Ministry of Justice and Legal Affairs' PDFs have a scrambled text layer, so the letters of each article are matched with them instead (alef forms and digits left out). Every article of the three acts matched on 29 October 2026; of the 93 others, 13 match in every article, 46 in part (3,239 of the 59 acts' 3,590 articles match) and 34 have no Ministry PDF. The result per act is in [`REPRODUCE.md`](REPRODUCE.md).
-- `tools/check_repo.py` reads every version back from git on the day it took effect and on the day before and compares it with the corpus; `tools/build.py` gives the same commit hashes from the same corpus. `REPRODUCE.md` records that neither was run for the latest build.
-- History grows append-only: `tools/append.py` puts new acts and versions on top and stops rather than rewrite a published commit.
+- يُعاد بناء التشريعات الثلاثة من كل مرسوم كما صدر؛ ويجب أن تطابق نسختها الأخيرة الصفحة الموحَّدة في موقع Qanoon.om، وأن يرد كل سطر يضيفه تعديلٌ ما في ذلك المرسوم.
+- الطبقة النصية في ملفات PDF الصادرة عن وزارة العدل والشؤون القانونية مشوَّشة، لذا تُطابَق حروف كل مادة معها بدلًا من ذلك (مع استبعاد صور الألف والأرقام). تطابقت كل مواد التشريعات الثلاثة في 29 أكتوبر 2026؛ ومن التشريعات الـ 93 الأخرى، تتطابق 13 في كل موادها، و46 جزئيًا (تتطابق 3239 مادة من أصل 3590 مادة في هذه التشريعات الـ 59) و34 ليس لها ملف PDF لدى الوزارة. والنتيجة لكل تشريع في [`REPRODUCE.md`](REPRODUCE.md).
+- يعيد `tools/check_repo.py` قراءة كل نسخة من git في يوم العمل بها وفي اليوم السابق له، ويقارنها بالمجموعة؛ ويعطي `tools/build.py` بصمات الـ commits نفسها من المجموعة نفسها. ويسجّل `REPRODUCE.md` أن أيًا منهما لم يُشغَّل لآخر عملية بناء.
+- ينمو السجل بالإضافة فقط: يضع `tools/append.py` التشريعات والنسخ الجديدة فوق ما سبق، ويتوقف بدلًا من إعادة كتابة commit منشور.
 
-## What it does not show
+## ما لا يُظهره
 
-- **The history of the 93 other acts.** Their text as issued and each amending decree are not yet commits, so a date before today can show wording that came later.
-- **Repeals.** A repealed act is not marked: the Labour Law of 2003 (RD 35/2003) is here, though the Labour Law of 2023 (RD 53/2023) repealed it; the 2023 law is one of eight left out as open problems (see `REPRODUCE.md`).
-- **Headings and signature blocks.** Book, part and chapter headings are not files, so two heading changes in the Penal Code are not commits; the decrees' signature blocks (date, signature, Gazette issue) are left out of the text.
-- **Other legislation.** Ministerial decisions, regulations outside Qanoon.om's consolidated laws, treaties and case law are not here, nor is the Penal Law of 1974 (RD 7/74).
-- **Applicability.** Transitional rules are in the text, not in the dates.
+- **تاريخ التشريعات الـ 93 الأخرى.** نصها كما صدر وكل مرسوم معدِّل لها ليسا commits بعد، لذا قد يُظهر تاريخ سابق لليوم صياغةً جاءت لاحقًا.
+- **الإلغاءات.** لا يُشار إلى التشريع الملغى: فقانون العمل لسنة 2003 (المرسوم السلطاني 35/2003) موجود هنا، رغم أن قانون العمل لسنة 2023 (المرسوم السلطاني 53/2023) ألغاه؛ وقانون 2023 واحد من ثمانية تشريعات استُبعدت بوصفها مشكلات مفتوحة (انظر `REPRODUCE.md`).
+- **العناوين وكتل التوقيع.** عناوين الكتب والأبواب والفصول ليست ملفات، لذا فإن تعديلين في العناوين في قانون الجزاء ليسا commits؛ وتُستبعد من النص كتل التوقيع في المراسيم (التاريخ والتوقيع وعدد الجريدة الرسمية).
+- **التشريعات الأخرى.** القرارات الوزارية، واللوائح غير الواردة في القوانين الموحَّدة على موقع Qanoon.om، والمعاهدات، والأحكام القضائية غير موجودة هنا، ولا قانون الجزاء لسنة 1974 (المرسوم السلطاني 7/74).
+- **نطاق التطبيق.** القواعد الانتقالية واردة في النص، لا في التواريخ.
 
-## Sources
+## المصادر
 
-| Source | Kind | Past versions | Notes |
+| المصدر | النوع | النسخ السابقة | ملاحظات |
 | --- | --- | --- | --- |
-| [Qanoon.om](https://qanoon.om) | Transcription of the Official Gazette | each decree as issued, and a consolidated page per law | Used for the text; footnotes name the amending decree. It states it is not an official source |
-| [Ministry of Justice and Legal Affairs](https://mjla.gov.om) | Official legislation, PDF per law | current text only | Used for the letter check |
+| [Qanoon.om](https://qanoon.om) | نقل عن الجريدة الرسمية | كل مرسوم كما صدر، وصفحة موحَّدة لكل قانون | يُستخدم للنص؛ وتسمّي الحواشي المرسوم المعدِّل. ويذكر الموقع أنه ليس مصدرًا رسميًا |
+| [وزارة العدل والشؤون القانونية](https://mjla.gov.om) | التشريعات الرسمية، ملف PDF لكل قانون | النص الحالي فقط | يُستخدم لمطابقة الحروف |
 
-## Licence
+## الترخيص
 
-See [`LICENSE`](LICENSE). Qanoon.om states that texts of law are public property in Oman under the Copyright and Related Rights Law and may be used, copied, published and translated freely; the Ministry's site is under the Government Open Licence - Sultanate of Oman. Lexifina's history, commit messages, tables and tools are CC0 1.0.
+انظر [`LICENSE`](LICENSE). يذكر موقع Qanoon.om أن نصوص القوانين ملك عام في عُمان بموجب قانون حقوق المؤلف والحقوق المجاورة، ويجوز استخدامها ونسخها ونشرها وترجمتها بحرية؛ وموقع الوزارة خاضع للترخيص الحكومي المفتوح (Government Open Licence - Sultanate of Oman). أما سجل Lexifina ورسائل الـ commits والجداول والأدوات فهي بموجب CC0 1.0.
 
-No AI model wrote, translated or corrected legal text, and none runs when the history is built; the scripts were written by an AI model (see [`REPRODUCE.md`](REPRODUCE.md)).
+لم يكتب أي نموذج ذكاء اصطناعي نصًا قانونيًا ولم يترجمه ولم يصححه، ولا يعمل أي نموذج عند بناء السجل؛ أما البرامج النصية (scripts) فكتبها نموذج ذكاء اصطناعي (انظر [`REPRODUCE.md`](REPRODUCE.md)).
 
-## بالعربية
+هذا النص ترجمة للنسخة الإنجليزية ([README.en.md](README.en.md))؛ وعند الاختلاف تسود النسخة الإنجليزية.
 
-تاريخ التشريع العماني في git: ملف لكل مادة، و commit لكل نسخة بتاريخ العمل بها، ويُنسب كل تعديل إلى المرسوم السلطاني الذي أجراه. يضم ٩٦ قانونا ومرسوما: النظام الأساسي للدولة وقانون الجزاء وقانون حماية البيانات الشخصية بتاريخ تعديلاتها، و٩٣ قانونا ومرسوما آخر بنصها الحالي فقط. يعرض `python tools/on.py 2026-06-01 nizam-asasi art-086` المادة ٨٦ من النظام الأساسي كما كانت في ذلك اليوم، ويبيّن `git blame nizam-asasi/art-086.md` المرسوم الذي كتب كل فقرة. المصدر موقع Qanoon.om (وهو ليس مصدرا رسميا)، مع مطابقة النص حرفا بحرف مع ملفات وزارة العدل والشؤون القانونية حيث توجد. لم يكتب أي نموذج ذكاء اصطناعي نصا قانونيا.
+## المزيد
 
-## More
+من مستودع [lexifina/global-law](https://github.com/lexifina/global-law) (صفحات باللغة الإنجليزية):
 
-From [lexifina/global-law](https://github.com/lexifina/global-law):
-
-- [FEATURES.md](https://github.com/lexifina/global-law/blob/main/FEATURES.md): every feature, and what every corpus must support (`git blame`, `law.py`, the MCP tools)
-- [FAQ.md](https://github.com/lexifina/global-law/blob/main/FAQ.md): questions and answers · [CONTRIBUTING.md](https://github.com/lexifina/global-law/blob/main/CONTRIBUTING.md): proposing changes · [MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md): the MCP server · [REPRODUCE.md](https://github.com/lexifina/global-law/blob/main/REPRODUCE.md): how it was built · [CHANGELOG.md](https://github.com/lexifina/global-law/blob/main/CHANGELOG.md)
-- [FRESHNESS.md](https://github.com/lexifina/global-law/blob/main/FRESHNESS.md): how current each corpus is · [Monitoring](https://github.com/lexifina/global-law/tree/main/monitoring): whether updates are running · [WATCHING.md](https://github.com/lexifina/global-law/blob/main/WATCHING.md): how each official source is watched for changes
-- [performance/](https://github.com/lexifina/global-law/tree/main/performance): how fast the tools are, measured
-- [visualisations/](https://github.com/lexifina/global-law/tree/main/visualisations): charts and bridges across the world's law
-- [Vulnerabilities](https://github.com/lexifina/global-law/tree/main/vulnerabilities): mistakes in legislation as published
+- [FEATURES.md](https://github.com/lexifina/global-law/blob/main/FEATURES.md): جميع الميزات، وما يجب أن تدعمه كل مجموعة (`git blame`، `law.py`، أدوات MCP)
+- [FAQ.md](https://github.com/lexifina/global-law/blob/main/FAQ.md): أسئلة وأجوبة · [CONTRIBUTING.md](https://github.com/lexifina/global-law/blob/main/CONTRIBUTING.md): اقتراح تغييرات · [MCP.md](https://github.com/lexifina/global-law/blob/main/MCP.md): خادم MCP · [REPRODUCE.md](https://github.com/lexifina/global-law/blob/main/REPRODUCE.md): طريقة البناء · [CHANGELOG.md](https://github.com/lexifina/global-law/blob/main/CHANGELOG.md)
+- [FRESHNESS.md](https://github.com/lexifina/global-law/blob/main/FRESHNESS.md): مدى حداثة كل مجموعة · [المراقبة](https://github.com/lexifina/global-law/tree/main/monitoring): هل تعمل التحديثات · [WATCHING.md](https://github.com/lexifina/global-law/blob/main/WATCHING.md): كيف يُراقَب كل مصدر رسمي لرصد التغييرات
+- [performance/](https://github.com/lexifina/global-law/tree/main/performance): سرعة الأدوات كما قيست
+- [visualisations/](https://github.com/lexifina/global-law/tree/main/visualisations): رسوم بيانية وروابط عبر قوانين العالم
+- [الثغرات](https://github.com/lexifina/global-law/tree/main/vulnerabilities): أخطاء في التشريعات كما نُشرت
